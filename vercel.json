@@ -1,5 +1,5 @@
 {
-  "buildCommand": "ng build",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist/clic-agency",
   "framework": null,
   "rewrites": [
