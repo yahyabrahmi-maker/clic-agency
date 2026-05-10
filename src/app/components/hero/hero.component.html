@@ -1,0 +1,76 @@
+<section id="top" class="hero" #heroEl>
+  <!-- Atmospheric background -->
+  <div class="hero-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-lines"></div>
+  </div>
+
+  <!-- Top meta strip -->
+  <div class="hero-meta container">
+    <span class="meta-item">
+      <span class="meta-dot"></span>
+      Available for new projects · {{ year }}
+    </span>
+    <span class="meta-item meta-item--mono">
+      36°48′N&nbsp;&nbsp;10°10′E&nbsp;·&nbsp;Tunis
+    </span>
+  </div>
+
+  <!-- Main composition -->
+  <div class="hero-main container">
+    <p class="hero-eyebrow eyebrow">
+      <span class="ar">كليك</span>
+      &nbsp;/&nbsp;
+      Creative agency · Est. 2024
+    </p>
+
+    <h1 class="hero-title display">
+      <span class="line">
+        <span class="word" data-anim="reveal">We</span>
+        <span class="word" data-anim="reveal">turn</span>
+        <span class="word italic-accent" data-anim="reveal">trends</span>
+      </span>
+      <span class="line">
+        <span class="word" data-anim="reveal">into</span>
+        <span class="word" data-anim="reveal">communities</span>
+        <span class="word punc" data-anim="reveal">.</span>
+      </span>
+    </h1>
+
+    <div class="hero-bottom">
+      <p class="hero-sub">
+        A social-first creative studio crafting bold content,
+        sharp strategy, and culture that <em>actually</em> clicks.
+        From Tunis to wherever your audience scrolls.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-primary" data-cursor="explore">
+          <span>See the work</span>
+          <span class="btn-arrow">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+        <a href="#contact" class="btn btn-ghost" data-cursor="hello">
+          Start a project
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats footer -->
+  <div class="hero-stats container">
+    <div class="stat" *ngFor="let s of stats">
+      <span class="stat-num display">{{ s.value }}</span>
+      <span class="stat-label">{{ s.label }}</span>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="scroll-cue" aria-hidden="true">
+    <span class="scroll-cue-text">Scroll</span>
+    <span class="scroll-cue-line"></span>
+  </div>
+</section>

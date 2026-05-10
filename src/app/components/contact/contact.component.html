@@ -1,0 +1,177 @@
+<section id="contact" class="contact">
+  <div class="container">
+
+    <header class="contact-head reveal">
+      <span class="eyebrow">
+        <span class="eyebrow-bullet">●</span> 05 — Let's talk
+      </span>
+      <h2 class="contact-title display">
+        Got a brief, a vibe,<br>
+        or just a <em class="italic-accent">"what if"</em>?
+      </h2>
+      <p class="contact-lede">
+        Drop us a line. We read everything, reply within 48h,
+        and never send you a brochure.
+      </p>
+    </header>
+
+    <div class="contact-grid">
+
+      <!-- LEFT: form -->
+      <form class="contact-form reveal"
+            (submit)="onSubmit($event)"
+            novalidate>
+
+        <!-- Service selector (chips) -->
+        <fieldset class="field-group">
+          <legend class="field-label">
+            <span class="field-num">01.</span>
+            What do you need?
+          </legend>
+          <div class="chips">
+            <label class="chip"
+                   *ngFor="let opt of serviceOptions"
+                   [class.is-active]="selectedServices.includes(opt)">
+              <input type="checkbox"
+                     [value]="opt"
+                     [checked]="selectedServices.includes(opt)"
+                     (change)="toggleService(opt)" />
+              <span>{{ opt }}</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Budget -->
+        <fieldset class="field-group">
+          <legend class="field-label">
+            <span class="field-num">02.</span>
+            Rough budget?
+          </legend>
+          <div class="chips chips--single">
+            <label class="chip"
+                   *ngFor="let b of budgetOptions"
+                   [class.is-active]="selectedBudget === b">
+              <input type="radio"
+                     name="budget"
+                     [value]="b"
+                     [checked]="selectedBudget === b"
+                     (change)="selectedBudget = b" />
+              <span>{{ b }}</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Name + Email row -->
+        <div class="field-row">
+          <div class="field"
+               [class.is-filled]="form.name"
+               [class.is-error]="errors['name']">
+            <label for="c-name" class="field-label">
+              <span class="field-num">03.</span>
+              Your name
+            </label>
+            <input id="c-name"
+                   name="name"
+                   type="text"
+                   class="field-input"
+                   [(ngModel)]="form.name"
+                   (blur)="validate('name')"
+                   placeholder="Lina Chebbi"
+                   autocomplete="name" />
+            <span class="field-error" *ngIf="errors['name']">{{ errors['name'] }}</span>
+          </div>
+
+          <div class="field"
+               [class.is-filled]="form.email"
+               [class.is-error]="errors['email']">
+            <label for="c-email" class="field-label">
+              <span class="field-num">04.</span>
+              Email
+            </label>
+            <input id="c-email"
+                   name="email"
+                   type="email"
+                   class="field-input"
+                   [(ngModel)]="form.email"
+                   (blur)="validate('email')"
+                   placeholder="lina@brand.co"
+                   autocomplete="email" />
+            <span class="field-error" *ngIf="errors['email']">{{ errors['email'] }}</span>
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div class="field"
+             [class.is-filled]="form.message"
+             [class.is-error]="errors['message']">
+          <label for="c-message" class="field-label">
+            <span class="field-num">05.</span>
+            Tell us about it
+          </label>
+          <textarea id="c-message"
+                    name="message"
+                    class="field-input field-input--area"
+                    [(ngModel)]="form.message"
+                    (blur)="validate('message')"
+                    rows="5"
+                    placeholder="A few lines about your brand, goals, timeline…"></textarea>
+          <span class="field-error" *ngIf="errors['message']">{{ errors['message'] }}</span>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-bottom">
+          <button class="btn btn-primary btn-submit"
+                  type="submit"
+                  [disabled]="submitting"
+                  data-cursor="send">
+            <span *ngIf="!submitting && !sent">Send message</span>
+            <span *ngIf="submitting">Sending<span class="dots-anim">...</span></span>
+            <span *ngIf="sent">Sent ✓ Talk soon.</span>
+            <span class="btn-arrow" *ngIf="!sent">
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+          <p class="form-meta">By sending you agree we may reply. That's it.</p>
+        </div>
+      </form>
+
+      <!-- RIGHT: info aside -->
+      <aside class="contact-aside reveal">
+        <div class="aside-block">
+          <span class="block-label">/ Reach us</span>
+          <a href="mailto:hello&#64;clic.studio" class="aside-link" data-cursor="email">
+            hello&#64;clic.studio
+          </a>
+          <a href="tel:+21671000000" class="aside-link aside-link--small" data-cursor="call">
+            +216 71 000 000
+          </a>
+        </div>
+
+        <div class="aside-block">
+          <span class="block-label">/ Studio</span>
+          <p class="aside-line">
+            Avenue Habib Bourguiba<br>
+            Tunis, Tunisia 1001<br>
+            <span class="aside-coords">36°48′N · 10°10′E</span>
+          </p>
+        </div>
+
+        <div class="aside-block">
+          <span class="block-label">/ Follow</span>
+          <div class="social-row">
+            <a href="#" class="social-link" data-cursor="instagram" aria-label="Instagram">IG</a>
+            <a href="#" class="social-link" data-cursor="tiktok" aria-label="TikTok">TT</a>
+            <a href="#" class="social-link" data-cursor="linkedin" aria-label="LinkedIn">LI</a>
+            <a href="#" class="social-link" data-cursor="behance" aria-label="Behance">Be</a>
+          </div>
+        </div>
+
+        <div class="aside-block aside-block--card">
+          <span class="card-time">{{ tunisTime }}</span>
+          <span class="card-label">Local time, Tunis</span>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>

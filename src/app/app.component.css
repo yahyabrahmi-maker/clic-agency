@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  background: var(--bg-void);
+  min-height: 100vh;
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+}

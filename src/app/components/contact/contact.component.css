@@ -1,0 +1,372 @@
+.contact {
+  padding: 8rem 0 6rem;
+  background: var(--bg-void);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--clic-cobalt) 0%, transparent 70%);
+  filter: blur(120px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* ---------- Header ---------- */
+.contact-head {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+  max-width: 800px;
+}
+
+.contact-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  color: var(--text-cloud);
+  line-height: 0.95;
+  font-weight: 400;
+}
+
+.contact-lede {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-mist);
+  max-width: 50ch;
+}
+
+/* ---------- Grid ---------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 5rem;
+}
+
+/* ---------- Form ---------- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.field-group {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.field-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-mist);
+  margin-bottom: 1rem;
+}
+
+.field-num {
+  color: var(--clic-gold);
+  font-weight: 500;
+}
+
+/* ---------- Chips ---------- */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--text-cloud);
+  cursor: pointer;
+  transition: all 0.4s var(--ease-out-expo);
+  user-select: none;
+}
+
+.chip input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--clic-gold);
+  transform: translateY(-2px);
+}
+
+.chip.is-active {
+  background: var(--clic-gold);
+  border-color: var(--clic-gold);
+  color: var(--bg-void);
+  font-weight: 500;
+}
+
+/* ---------- Field rows ---------- */
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.field-input {
+  width: 100%;
+  padding: 1rem 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-soft);
+  color: var(--text-cloud);
+  font-size: 1.1rem;
+  font-family: var(--font-body);
+  transition: border-color 0.4s var(--ease-out-expo);
+  resize: vertical;
+  outline: none;
+}
+
+.field-input--area {
+  min-height: 130px;
+  padding: 1rem 0;
+  line-height: 1.55;
+}
+
+.field-input::placeholder {
+  color: var(--text-slate);
+}
+
+.field-input:focus {
+  border-bottom-color: var(--clic-gold);
+}
+
+.field.is-filled .field-input {
+  border-bottom-color: var(--clic-gold);
+}
+
+.field.is-error .field-input {
+  border-bottom-color: #ff6b6b;
+}
+
+.field-error {
+  position: absolute;
+  bottom: -1.4rem;
+  left: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #ff6b6b;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- Submit ---------- */
+.form-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-faint);
+  flex-wrap: wrap;
+}
+
+.btn-submit {
+  font-size: 1rem;
+  padding: 1.1rem 2rem;
+  position: relative;
+}
+
+.btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.dots-anim::after {
+  content: '';
+  display: inline-block;
+  animation: dotsAnim 1s steps(4) infinite;
+  width: 1.2em;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+@keyframes dotsAnim {
+  0%   { content: ''; }
+  25%  { content: '.'; }
+  50%  { content: '..'; }
+  75%  { content: '...'; }
+  100% { content: ''; }
+}
+
+.form-meta {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-slate);
+  max-width: 24ch;
+}
+
+/* ---------- Aside ---------- */
+.contact-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.aside-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.block-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--clic-gold);
+  margin-bottom: 0.4rem;
+}
+
+.aside-link {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--text-cloud);
+  letter-spacing: -0.015em;
+  font-weight: 400;
+  position: relative;
+  width: fit-content;
+  transition: color 0.4s ease, font-style 0.4s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.aside-link:hover {
+  color: var(--clic-gold);
+  font-style: italic;
+  border-bottom-color: var(--clic-gold);
+}
+
+.aside-link--small {
+  font-size: 1.05rem;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  color: var(--text-mist);
+  letter-spacing: 0.05em;
+}
+
+.aside-link--small:hover {
+  font-style: normal;
+}
+
+.aside-line {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--text-mist);
+}
+
+.aside-coords {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-slate);
+  letter-spacing: 0.08em;
+  display: inline-block;
+  margin-top: 0.4rem;
+}
+
+/* ---------- Social ---------- */
+.social-row {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.social-link {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--text-mist);
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.social-link:hover {
+  background: var(--clic-gold);
+  border-color: var(--clic-gold);
+  color: var(--bg-void);
+  transform: translateY(-3px);
+}
+
+/* ---------- Time card ---------- */
+.aside-block--card {
+  padding: 1.6rem;
+  border: 1px solid var(--clic-gold);
+  border-radius: 18px;
+  background: linear-gradient(135deg,
+    rgba(232, 197, 71, 0.08),
+    rgba(27, 31, 184, 0.05));
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.card-time {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-style: italic;
+  color: var(--clic-gold);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.card-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-mist);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .contact { padding: 5rem 0 4rem; }
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .field-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .form-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+}

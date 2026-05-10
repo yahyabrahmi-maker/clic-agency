@@ -1,0 +1,6 @@
+<div class="cursor-wrap" [class.is-hidden]="isHidden" [class.is-touch]="isTouch">
+  <div class="cursor-dot" #dot></div>
+  <div class="cursor-ring" [class.is-hover]="isHovering" [class.is-click]="isClicking" #ring>
+    <span class="cursor-label" *ngIf="label">{{ label }}</span>
+  </div>
+</div>

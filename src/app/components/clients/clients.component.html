@@ -1,0 +1,82 @@
+<section id="clients" class="clients">
+  <div class="container">
+
+    <header class="clients-head reveal">
+      <span class="eyebrow">
+        <span class="eyebrow-bullet">●</span> 03 — Trusted by
+      </span>
+      <h2 class="clients-title display">
+        Brands who said <em class="italic-accent">yes</em><br>
+        and never looked back.
+      </h2>
+    </header>
+
+    <!-- Logo strip -->
+    <div class="logo-strip reveal">
+      <div class="logo-track">
+        <ng-container *ngFor="let _ of [].constructor(2)">
+          <div class="logo-cell" *ngFor="let c of clients">
+            <span class="logo-mark">{{ c.mark }}</span>
+            <span class="logo-name">{{ c.name }}</span>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Testimonials carousel -->
+    <div class="testi-stage reveal">
+      <button class="testi-arrow testi-arrow--prev"
+              type="button"
+              aria-label="Previous testimonial"
+              data-cursor="prev"
+              (click)="prev()">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M11 19l-7-7 7-7" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="testi-frame">
+        <div class="testi-quote-mark" aria-hidden="true">"</div>
+
+        <div class="testi-slides">
+          <article class="testi-slide"
+                   *ngFor="let t of testimonials; let i = index"
+                   [class.is-active]="i === activeIndex"
+                   [class.is-prev]="i === prevIndex">
+            <blockquote class="testi-text display">{{ t.quote }}</blockquote>
+            <footer class="testi-foot">
+              <div class="testi-author">
+                <span class="testi-avatar" [style.background]="t.color">{{ t.initials }}</span>
+                <div>
+                  <cite class="testi-name">{{ t.name }}</cite>
+                  <span class="testi-role">{{ t.role }}</span>
+                </div>
+              </div>
+              <span class="testi-counter">
+                {{ '0' + (i + 1) }} <span class="counter-divider">/</span> {{ '0' + testimonials.length }}
+              </span>
+            </footer>
+          </article>
+        </div>
+      </div>
+
+      <button class="testi-arrow testi-arrow--next"
+              type="button"
+              aria-label="Next testimonial"
+              data-cursor="next"
+              (click)="next()">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <!-- Pagination dots -->
+    <div class="testi-dots">
+      <button *ngFor="let t of testimonials; let i = index"
+              class="testi-dot"
+              [class.is-active]="i === activeIndex"
+              type="button"
+              [attr.aria-label]="'Go to testimonial ' + (i + 1)"
+              (click)="goTo(i)">
+      </button>
+    </div>
+
+  </div>
+</section>

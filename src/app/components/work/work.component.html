@@ -1,0 +1,79 @@
+<section id="work" class="work">
+  <div class="container">
+    <header class="work-head reveal">
+      <div class="work-head-top">
+        <span class="eyebrow">
+          <span class="eyebrow-bullet">●</span> 02 — Selected work
+        </span>
+        <span class="work-count">{{ projects.length }} / projects shown</span>
+      </div>
+      <h2 class="work-title display">
+        Stories that didn't<br>
+        just <em class="italic-accent">scroll</em> by.
+      </h2>
+    </header>
+
+    <!-- Featured project (large) -->
+    <a class="work-featured reveal"
+       href="#contact"
+       data-cursor="case study"
+       (mouseenter)="onFeaturedEnter()"
+       (mouseleave)="onFeaturedLeave()">
+      <div class="work-featured-media">
+        <div class="work-featured-bg" [style.background]="featured.gradient">
+          <div class="work-featured-glow"></div>
+          <span class="work-featured-mark">{{ featured.mark }}</span>
+        </div>
+      </div>
+      <div class="work-featured-info">
+        <span class="work-tag">Featured · Case study</span>
+        <h3 class="work-featured-name">{{ featured.client }}</h3>
+        <p class="work-featured-line">{{ featured.tagline }}</p>
+        <div class="work-featured-stats">
+          <div class="wf-stat" *ngFor="let st of featured.stats">
+            <span class="wf-stat-value">{{ st.value }}</span>
+            <span class="wf-stat-label">{{ st.label }}</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Grid of secondary projects -->
+    <div class="work-grid"
+         (mousemove)="onGridMove($event)"
+         (mouseleave)="onGridLeave()">
+
+      <!-- Floating preview that follows the cursor -->
+      <div class="work-preview"
+           [class.is-visible]="previewVisible"
+           [style.background]="previewGradient"
+           [style.transform]="'translate3d(' + previewX + 'px,' + previewY + 'px,0) translate(-50%,-50%) rotate(' + previewRotate + 'deg)'">
+        <span class="work-preview-mark">{{ previewMark }}</span>
+      </div>
+
+      <a class="work-row"
+         *ngFor="let p of projects; let i = index"
+         href="#contact"
+         data-cursor="view case"
+         (mouseenter)="onRowEnter(p)"
+         (mouseleave)="onRowLeave()">
+        <span class="work-row-num">{{ '0' + (i + 1) }}</span>
+        <span class="work-row-name">{{ p.client }}</span>
+        <span class="work-row-cat">{{ p.category }}</span>
+        <span class="work-row-year">{{ p.year }}</span>
+        <span class="work-row-arrow">
+          <svg viewBox="0 0 24 24">
+            <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.5"
+                  fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+    </div>
+
+    <div class="work-cta reveal">
+      <a href="#contact" class="btn btn-ghost" data-cursor="get in touch">
+        Got a brief? Let's chat →
+      </a>
+    </div>
+  </div>
+</section>

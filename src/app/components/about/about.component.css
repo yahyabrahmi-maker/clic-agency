@@ -1,0 +1,235 @@
+.about {
+  padding: 8rem 0 6rem;
+  background: var(--bg-cream);
+  color: var(--text-ink);
+  position: relative;
+  border-radius: 32px 32px 0 0;
+  margin-top: 2rem;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--clic-gold);
+  border-radius: 0 0 4px 4px;
+}
+
+/* ---------- Header ---------- */
+.about-head {
+  margin-bottom: 4rem;
+}
+
+.about-head .eyebrow {
+  color: var(--clic-cobalt);
+}
+
+.about-head .eyebrow-bullet {
+  color: var(--clic-gold);
+}
+
+/* ---------- Statement ---------- */
+.about-statement {
+  padding-bottom: 4rem;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid var(--border-ink);
+}
+
+.about-headline {
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  color: var(--text-ink);
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  max-width: 24ch;
+}
+
+.about-headline em {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--clic-cobalt);
+  font-weight: 500;
+}
+
+/* ---------- Grid ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  margin-bottom: 6rem;
+}
+
+.about-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.block-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--clic-cobalt);
+}
+
+.about-copy {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-graphite);
+  max-width: 48ch;
+}
+
+.about-copy em {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--clic-cobalt);
+  font-weight: 500;
+}
+
+/* ---------- Process ---------- */
+.about-process {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  counter-reset: step;
+}
+
+.process-step {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 1.5rem;
+  padding: 1.4rem 0;
+  border-top: 1px solid var(--border-ink);
+  position: relative;
+  transition: padding-left 0.5s var(--ease-out-expo);
+}
+
+.process-step:hover {
+  padding-left: 1rem;
+}
+
+.process-step:hover::before {
+  transform: scaleY(1);
+}
+
+.process-step::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--clic-gold);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.process-step:last-child {
+  border-bottom: 1px solid var(--border-ink);
+}
+
+.step-num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--clic-cobalt);
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+.step-body h4 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--text-ink);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.015em;
+  transition: color 0.4s ease, font-style 0.4s ease;
+}
+
+.process-step:hover .step-body h4 {
+  color: var(--clic-cobalt);
+  font-style: italic;
+}
+
+.step-body p {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text-graphite);
+}
+
+/* ---------- Numbers strip ---------- */
+.about-numbers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding-top: 3rem;
+  border-top: 2px solid var(--text-ink);
+}
+
+.num-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.num-value {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  color: var(--text-ink);
+  line-height: 1;
+  font-weight: 400;
+}
+
+.num-value em {
+  font-style: italic;
+  color: var(--clic-cobalt);
+}
+
+.num-value sup {
+  color: var(--clic-gold);
+  font-size: 0.5em;
+  font-style: italic;
+  vertical-align: super;
+  line-height: 1;
+}
+
+.num-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-graphite);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .about { padding: 5rem 0 4rem; }
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+  .about-numbers {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .process-step {
+    grid-template-columns: 40px 1fr;
+    gap: 1rem;
+    padding: 1.2rem 0;
+  }
+  .step-body h4 {
+    font-size: 1.3rem;
+  }
+}

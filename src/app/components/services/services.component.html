@@ -1,0 +1,62 @@
+<section id="services" class="services">
+  <div class="container">
+
+    <header class="services-head reveal">
+      <span class="eyebrow">
+        <span class="eyebrow-bullet">●</span> 01 — Services
+      </span>
+      <h2 class="services-title display">
+        Six ways we make<br>
+        brands <em class="italic-accent">click</em>.
+      </h2>
+      <p class="services-lede">
+        From strategy and creative direction to production and community —
+        we build full social-first ecosystems that audiences actually care about.
+      </p>
+    </header>
+
+    <ul class="services-list" role="list">
+      <li class="service-row"
+          *ngFor="let s of services; let i = index"
+          [class.is-active]="activeIndex === i"
+          (mouseenter)="onEnter(i)"
+          (mouseleave)="onLeave()"
+          (click)="toggle(i)"
+          data-cursor="open">
+
+        <div class="service-row-inner">
+          <span class="service-num">{{ s.number }}</span>
+
+          <div class="service-headline">
+            <h3 class="service-title">{{ s.title }}</h3>
+            <p class="service-tagline">{{ s.tagline }}</p>
+          </div>
+
+          <div class="service-tags">
+            <span class="tag" *ngFor="let t of s.tags">{{ t }}</span>
+          </div>
+
+          <span class="service-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.5"
+                    fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+
+        <div class="service-panel">
+          <div class="service-panel-inner">
+            <p class="service-desc">{{ s.description }}</p>
+            <ul class="service-bullets" role="list">
+              <li *ngFor="let b of s.bullets">
+                <span class="bullet-mark">→</span>
+                {{ b }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</section>

@@ -1,0 +1,331 @@
+.clients {
+  padding: 8rem 0 6rem;
+  background: var(--bg-night);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---------- Header ---------- */
+.clients-head {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.clients-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  color: var(--text-cloud);
+  line-height: 0.95;
+  font-weight: 400;
+}
+
+/* ---------- Logo strip ---------- */
+.logo-strip {
+  position: relative;
+  overflow: hidden;
+  margin: 0 calc(var(--gutter) * -1);
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-faint);
+  border-bottom: 1px solid var(--border-faint);
+  margin-bottom: 6rem;
+}
+
+.logo-strip::before,
+.logo-strip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.logo-strip::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-night), transparent);
+}
+.logo-strip::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-night), transparent);
+}
+
+.logo-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 4rem;
+  white-space: nowrap;
+  animation: scrollLogos 32s linear infinite;
+  will-change: transform;
+}
+
+.logo-strip:hover .logo-track {
+  animation-play-state: paused;
+}
+
+.logo-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  padding: 0 1rem;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.logo-cell:hover {
+  transform: translateY(-4px);
+}
+
+.logo-mark {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--clic-gold);
+  flex-shrink: 0;
+  transition: border-color 0.4s ease, background 0.4s ease;
+}
+
+.logo-cell:hover .logo-mark {
+  border-color: var(--clic-gold);
+  background: var(--clic-gold);
+  color: var(--bg-void);
+}
+
+.logo-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--text-mist);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  transition: color 0.4s ease;
+}
+
+.logo-cell:hover .logo-name {
+  color: var(--text-cloud);
+}
+
+@keyframes scrollLogos {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---------- Testimonial stage ---------- */
+.testi-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.testi-arrow {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--border-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-cloud);
+  transition: all 0.4s var(--ease-out-expo);
+  flex-shrink: 0;
+}
+
+.testi-arrow svg { width: 22px; height: 22px; }
+
+.testi-arrow:hover {
+  background: var(--clic-gold);
+  border-color: var(--clic-gold);
+  color: var(--bg-void);
+  transform: scale(1.05);
+}
+
+.testi-frame {
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testi-quote-mark {
+  position: absolute;
+  top: -3rem;
+  left: -1rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 12rem;
+  color: var(--clic-gold);
+  opacity: 0.18;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.testi-slides {
+  position: relative;
+  width: 100%;
+}
+
+.testi-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.7s var(--ease-out-expo),
+              transform 0.7s var(--ease-out-expo);
+}
+
+.testi-slide.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  position: relative;
+}
+
+.testi-slide.is-prev {
+  transform: translateY(-20px);
+}
+
+.testi-text {
+  font-size: clamp(1.5rem, 2.6vw, 2.4rem);
+  line-height: 1.3;
+  font-weight: 400;
+  color: var(--text-cloud);
+  letter-spacing: -0.015em;
+}
+
+.testi-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-faint);
+}
+
+.testi-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.testi-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--bg-void);
+  flex-shrink: 0;
+}
+
+.testi-name {
+  display: block;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-cloud);
+}
+
+.testi-role {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-slate);
+  margin-top: 0.2rem;
+}
+
+.testi-counter {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-slate);
+  letter-spacing: 0.08em;
+}
+
+.counter-divider {
+  color: var(--clic-gold);
+  margin: 0 0.2em;
+}
+
+/* ---------- Dots ---------- */
+.testi-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 3rem;
+}
+
+.testi-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-soft);
+  border: none;
+  transition: background 0.4s ease, transform 0.4s var(--ease-out-expo), width 0.4s var(--ease-out-expo);
+}
+
+.testi-dot.is-active {
+  width: 28px;
+  border-radius: 4px;
+  background: var(--clic-gold);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .clients { padding: 5rem 0 4rem; }
+  .testi-stage {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .testi-arrow {
+    grid-row: 3;
+    justify-self: start;
+  }
+  .testi-arrow--next {
+    grid-row: 3;
+    justify-self: end;
+    margin-top: -56px;
+  }
+  .testi-quote-mark {
+    font-size: 6rem;
+    top: -2rem;
+  }
+  .logo-cell {
+    gap: 0.6rem;
+    padding: 0 0.5rem;
+  }
+  .logo-mark {
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+  .logo-name {
+    font-size: 1rem;
+  }
+  .logo-track {
+    gap: 2rem;
+  }
+}

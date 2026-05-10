@@ -1,0 +1,52 @@
+.marquee {
+  position: relative;
+  padding: 2.2rem 0;
+  background: var(--clic-gold);
+  color: var(--bg-void);
+  border-top: 1px solid var(--clic-gold-deep);
+  border-bottom: 1px solid var(--clic-gold-deep);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5rem;
+  animation-name: scrollMarquee;
+  animation-duration: 80s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+/* Pause on hover - works in every browser */
+.marquee:hover .marquee-track,
+.marquee-track:hover {
+  animation-play-state: paused !important;
+}
+
+.m-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3.4rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  font-style: italic;
+}
+
+.m-word { white-space: nowrap; }
+
+.m-star {
+  color: var(--bg-void);
+  font-style: normal;
+  font-size: 0.7em;
+  transform: translateY(-0.05em);
+}
+
+@keyframes scrollMarquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}

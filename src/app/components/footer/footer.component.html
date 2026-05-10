@@ -1,0 +1,63 @@
+<footer class="footer">
+  <div class="footer-massive container">
+    <span class="footer-massive-text">CLIC</span>
+    <span class="footer-massive-ar">كليك</span>
+  </div>
+
+  <div class="footer-grid container">
+    <div class="footer-col">
+      <span class="footer-label">/ Studio</span>
+      <p class="footer-line">
+        A creative agency from Tunis,<br>
+        making brands click since 2024.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <span class="footer-label">/ Sitemap</span>
+      <a href="#services" class="footer-link" data-cursor="go">Services</a>
+      <a href="#work" class="footer-link" data-cursor="go">Work</a>
+      <a href="#clients" class="footer-link" data-cursor="go">Clients</a>
+      <a href="#about" class="footer-link" data-cursor="go">About</a>
+      <a href="#contact" class="footer-link" data-cursor="go">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <span class="footer-label">/ Elsewhere</span>
+      <a href="#" class="footer-link" data-cursor="instagram">Instagram <span class="ext">↗</span></a>
+      <a href="#" class="footer-link" data-cursor="tiktok">TikTok <span class="ext">↗</span></a>
+      <a href="#" class="footer-link" data-cursor="linkedin">LinkedIn <span class="ext">↗</span></a>
+      <a href="#" class="footer-link" data-cursor="behance">Behance <span class="ext">↗</span></a>
+    </div>
+
+    <div class="footer-col">
+      <span class="footer-label">/ Newsletter</span>
+      <p class="footer-line footer-line--small">
+        One email a month. Trends, work, no fluff.
+      </p>
+      <form class="newsletter" (submit)="onSubscribe($event)">
+        <input type="email"
+               required
+               placeholder="you@brand.co"
+               [(ngModel)]="newsletterEmail"
+               name="newsletterEmail"
+               aria-label="Email for newsletter" />
+        <button type="submit" data-cursor="subscribe" [disabled]="subscribed">
+          <span *ngIf="!subscribed">Subscribe</span>
+          <span *ngIf="subscribed">Done ✓</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom container">
+    <span class="footer-copy">© {{ year }} CLIC Studio · Tunis, Tunisia</span>
+    <a class="footer-back" href="#top" data-cursor="top ↑">
+      <span>Back to top</span>
+      <span class="footer-back-arrow">
+        <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+    <span class="footer-credit">Made with ☕ in Tunis</span>
+  </div>
+</footer>

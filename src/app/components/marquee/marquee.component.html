@@ -1,0 +1,10 @@
+<section class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <ng-container *ngFor="let _ of [].constructor(3)">
+      <span class="m-item" *ngFor="let word of words">
+        <span class="m-word">{{ word }}</span>
+        <span class="m-star">✦</span>
+      </span>
+    </ng-container>
+  </div>
+</section>
