@@ -43,8 +43,8 @@ export class WorkComponent implements AfterViewInit, OnDestroy {
     gradient:
       'linear-gradient(135deg, #1B1FB8 0%, #2E32E0 45%, #06081F 100%)',
     stats: [
-      { value: '10M+', label: 'Views' },
-      { value: '+75%',  label: 'Followers' },
+      { value: '457K+', label: 'Views' },
+      { value: '+75%',  label: 'Growth' },
       { value: '+57%', label: 'Engagement' }
     ]
   };
