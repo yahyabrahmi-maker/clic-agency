@@ -52,45 +52,45 @@ export class WorkComponent implements AfterViewInit, OnDestroy {
   // ----- Project rows -----
   projects: Project[] = [
     {
-      client: 'Marsa Studios',
-      category: 'Strategy · Content',
-      year: '2024',
-      mark: 'MS',
+      client: 'Peak Tunisie',
+      category: 'Production · Social media',
+      year: '2026',
+      mark: 'PK',
       gradient: 'linear-gradient(135deg, #E8C547 0%, #C9A535 100%)'
     },
     {
-      client: 'Olea & Co.',
-      category: 'UGC · Paid social',
-      year: '2024',
-      mark: 'OC',
+      client: 'Anta Sport',
+      category: 'Production · Social media',
+      year: '2026',
+      mark: 'AN',
       gradient: 'linear-gradient(135deg, #131593 0%, #2E32E0 100%)'
     },
     {
-      client: 'Berber Coffee',
-      category: 'Branding · Reels',
-      year: '2024',
-      mark: 'BC',
+      client: 'Keraa',
+      category: 'Rebranding · Social media',
+      year: '2026',
+      mark: 'KR',
       gradient: 'linear-gradient(135deg, #4A4F66 0%, #0B0E2A 100%)'
     },
     {
-      client: 'Sahara Run',
-      category: 'Influencer · Event',
-      year: '2025',
-      mark: 'SR',
+      client: 'Canadian Int. School',
+      category: 'Strategy · Marketing',
+      year: '2026',
+      mark: 'CIS',
       gradient: 'linear-gradient(135deg, #F2D060 0%, #E8C547 50%, #C9A535 100%)'
     },
     {
-      client: 'La Médina Hotel',
-      category: 'Production · Campaign',
+      client: 'Carthage Land',
+      category: 'Production · Social media',
       year: '2025',
-      mark: 'LM',
+      mark: 'CL',
       gradient: 'linear-gradient(135deg, #2E32E0 0%, #1B1FB8 50%, #06081F 100%)'
     },
     {
-      client: 'TUNIS.fm',
-      category: 'Community · Editorial',
+      client: 'Private client',
+      category: 'Rebranding · UGC reels',
       year: '2025',
-      mark: 'TF',
+      mark: 'PC',
       gradient: 'linear-gradient(135deg, #E8C547 0%, #1B1FB8 100%)'
     }
   ];

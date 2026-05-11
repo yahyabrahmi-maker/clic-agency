@@ -16,9 +16,12 @@
       <div class="logo-track">
         <ng-container *ngFor="let _ of [].constructor(2)">
           <div class="logo-cell" *ngFor="let c of clients">
-            <span class="logo-mark">{{ c.mark }}</span>
-            <span class="logo-name">{{ c.name }}</span>
-          </div>
+  <span class="logo-mark">
+    <img *ngIf="c.logo; else letterMark" [src]="c.logo" [alt]="c.name" />
+    <ng-template #letterMark>{{ c.mark }}</ng-template>
+  </span>
+  <span class="logo-name">{{ c.name }}</span>
+</div>
         </ng-container>
       </div>
     </div>

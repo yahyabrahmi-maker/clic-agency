@@ -79,9 +79,6 @@
 .logo-mark {
   width: 56px;
   height: 56px;
-  border-radius: 14px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-soft);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,13 +88,11 @@
   font-weight: 500;
   color: var(--clic-gold);
   flex-shrink: 0;
-  transition: border-color 0.4s ease, background 0.4s ease;
+  transition: opacity 0.4s ease;
 }
 
 .logo-cell:hover .logo-mark {
-  border-color: var(--clic-gold);
-  background: var(--clic-gold);
-  color: var(--bg-void);
+  opacity: 0.85;
 }
 
 .logo-name {
@@ -318,8 +313,8 @@
     padding: 0 0.5rem;
   }
   .logo-mark {
-    width: 44px;
-    height: 44px;
+    width: 64px;
+    height: 64px;
     font-size: 1rem;
   }
   .logo-name {
@@ -328,4 +323,16 @@
   .logo-track {
     gap: 2rem;
   }
+.logo-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);   /* makes ANY logo pure white */
+  opacity: 0.85;
+  transition: opacity 0.4s ease;
+}
+
+.logo-cell:hover .logo-mark img {
+  opacity: 1;
+}
 }

@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 interface Client {
   name: string;
   mark: string;
+  logo?: string; 
 }
 
 interface Testimonial {
@@ -28,16 +29,13 @@ interface Testimonial {
 })
 export class ClientsComponent implements AfterViewInit, OnDestroy {
 
-  clients: Client[] = [
-    { name: 'Carthage Land', mark: 'CL' },
-    { name: 'Olea & Co.',    mark: 'O' },
-    { name: 'Marsa Studios', mark: 'MS' },
-    { name: 'Berber Coffee', mark: 'BC' },
-    { name: 'La Médina',     mark: 'LM' },
-    { name: 'Sahara Run',    mark: 'SR' },
-    { name: 'TUNIS.fm',      mark: 'TF' },
-    { name: 'Olive & Sea',   mark: 'O&' }
-  ];
+clients: Client[] = [
+  { name: 'Peak Tunisie',                          mark: 'PK', logo: 'assets/peaklogo.png' },
+  { name: 'Anta Sport',                          mark: 'AN', logo: 'assets/antalogo.png' },
+  { name: 'Carthage Land',                 mark: 'CL', logo: 'assets/cllogo.png' },
+  { name: 'Canadian Int. School', mark: 'CI', logo: 'assets/cislogo.png' },
+  { name: 'Keraa',                         mark: 'KR', logo: 'assets/keraalogo.png' }
+];
 
   testimonials: Testimonial[] = [
     {
